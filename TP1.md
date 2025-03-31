@@ -109,14 +109,21 @@ server {
 }
 EOF
 
-* echo "<h1>Cest un site web ce truc 🚀</h1>" > ~/nginx_custom/html/index.html
+* echo "<h1>Cest un site web ce truc </h1>" > ~/nginx_custom/html/index.html
 
 * docker run --name meow -d \
-  -p 7777:7777 \
+  -p 9999:7777 \
   -v ~/nginx_custom/conf/custom.conf:/etc/nginx/conf.d/custom.conf \
   -v ~/nginx_custom/html:/var/www/tp_docker \
   --memory=512m \
   nginx
+
+
+## PART2
+
+# 🌞 Construire votre propre image
+
+
 
 
 
