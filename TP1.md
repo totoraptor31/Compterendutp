@@ -455,3 +455,6 @@ app-1     |  * Running on all addresses.
 app-1     |    WARNING: This is a development server. Do not use it in a production deployment.
 app-1     |  * Running on http://172.19.0.3:8888/ (Press CTRL+C to quit)
 app-1     | 31.34.146.37 - - [31/Mar/2025 22:06:58] "GET / HTTP/1.1" 200 -
+
+# 🌞 Prouvez que vous pouvez devenir root
+
