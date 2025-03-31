@@ -458,3 +458,18 @@ app-1     | 31.34.146.37 - - [31/Mar/2025 22:06:58] "GET / HTTP/1.1" 200 -
 
 # 🌞 Prouvez que vous pouvez devenir root
 
+azureuser@STEP3:~$ groups azureuser
+azureuser : azureuser adm cdrom sudo dip lxd docker
+azureuser@STEP3:~$ docker run --rm -it --privileged ubuntu bash
+root@615051010d68:/# whoami
+
+# 🌞 Utilisez Trivy
+
+* trivy image wikijs-image
+
+* trivy image postgres:13
+
+* trivy image my-meow-app-app
+
+* trivy image nginx:latest
+
