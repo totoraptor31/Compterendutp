@@ -123,8 +123,125 @@ EOF
 
 # 🌞 Construire votre propre image
 
+* touch Dockerfile 
+
+* nano index.html 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 50px;
+}
+
+h1 {
+    color: #ff6347;
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+#trollContent h2 {
+    color: #ff6347;
+    font-size: 30px;
+}
+
+#trollContent p {
+    color: #555;
+}
+
+#trollContent img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+azureuser@TP1:~$ ls
+Dockerfile  index.html  myproject
+azureuser@TP1:~$ cat Dockerfile
+FROM ubuntu
+
+RUN apt update -y
+
+RUN apt install -y apache2
+
+RUN mkdir /etc/apache2/logs
+
+COPY apache2.conf /etc/apache2/
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+COPY index.html /var/www/html/
+
+CMD [ "apache2", "-DFOREGROUND" ]
+
+* nano apache2.conf
+
+Listen 80
+
+LoadModule mpm_event_module "/usr/lib/apache2/modules/mod_mpm_event.so"
+LoadModule dir_module "/usr/lib/apache2/modules/mod_dir.so"
+LoadModule authz_core_module "/usr/lib/apache2/modules/mod_authz_core.so"
 
 
+DirectoryIndex index.html
+
+DocumentRoot "/var/www/html/"
+
+ErrorLog "logs/error.log"
+LogLevel warn
+
+* cat Dockerfile
+
+FROM ubuntu
+
+RUN apt update -y
+
+RUN apt install -y apache2
+
+RUN mkdir /etc/apache2/logs
+
+COPY apache2.conf /etc/apache2/
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+COPY index.html /var/www/html/
+
+CMD [ "apache2", "-DFOREGROUND" ]
+
+* docker build . -t project
+
+* docker run -p 9999:80 project
+
+* sudo docker run -d -p 9999:80 project
+
+🌞 Installez un WikiJS en utilisant Docker
 
 
 
