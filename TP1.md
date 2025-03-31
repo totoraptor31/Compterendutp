@@ -100,6 +100,25 @@ Commercial support is available at
 
 # 🌞 Custom un peu le lancement du conteneur
 
+* mkdir -p ~/nginx_custom/{conf,html}
+
+* cat <<EOF > ~/nginx_custom/conf/custom.conf
+server {
+  listen 7777;
+  root /var/www/tp_docker;
+}
+EOF
+
+* echo "<h1>Cest un site web ce truc 🚀</h1>" > ~/nginx_custom/html/index.html
+
+* docker run --name meow -d \
+  -p 7777:7777 \
+  -v ~/nginx_custom/conf/custom.conf:/etc/nginx/conf.d/custom.conf \
+  -v ~/nginx_custom/html:/var/www/tp_docker \
+  --memory=512m \
+  nginx
+
+
 
 
 
