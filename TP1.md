@@ -74,6 +74,7 @@ Commercial support is available at
 # 🌞 Rendre le service dispo sur internet
 
 *  curl http://135.236.10.211:9999
+'
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,6 +98,7 @@ Commercial support is available at
 <p><em>Thank you for using nginx.</em></p>
 </body>
 </html>
+'
 
 # 🌞 Custom un peu le lancement du conteneur
 
@@ -285,7 +287,7 @@ volumes:
 
 ## 🌞 Vous devez :
 
-construire une image qui
+- construire une image qui
 
 contient python3
 
